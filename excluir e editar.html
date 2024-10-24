@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar, Editar e Remover Itens da Lista</title>
+    <style>
+        .btn {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar, Editar e Remover Itens da Lista</h1>
+
+    <!-- Campo de input e botão -->
+    <input type="text" id="itemInput" placeholder="Escreva algo...">
+    <button onclick="adicionarItem()">Adicionar</button>
+
+    <!-- Lista não ordenada -->
+    <ul id="lista"></ul>
+
+    <script>
+        function adicionarItem() {
+            let itemTexto = document.getElementById("itemInput").value;
+
+            if (itemTexto.trim() !== "") {
+                // Criar um novo elemento li
+                let novoItem = document.createElement("li");
+
+                // Adicionar o texto ao li
+                let textoItem = document.createElement("span");
+                textoItem.textContent = itemTexto;
+
+                // Criar botão de editar
+                let btnEditar = document.createElement("button");
+                btnEditar.textContent = "Atualizar";
+                btnEditar.classList.add("btn");
+                btnEditar.onclick = function() {
+                    editarItem(novoItem, textoItem);
+                };
+                
+                // Criar botão de remover
+                let btnRemover = document.createElement("button");
+                btnRemover.textContent = "Remover";
+                btnRemover.classList.add("btn");
+                btnRemover.onclick = function() {
+                    removerItem(novoItem);
+                };
+
+                // Adicionar texto e botões ao novo item
+                novoItem.appendChild(textoItem);
+                novoItem.appendChild(btnEditar);
+                novoItem.appendChild(btnRemover);
+
+                // Adicionar o novo item à lista (ul)
+                document.getElementById("lista").appendChild(novoItem);
+
+                // Limpar o campo de input
+                document.getElementById("itemInput").value = "";
+            } else {
+                alert("Por favor, escreva algo antes de adicionar.");
+            }
+        }
+
+        function removerItem(item) {
+            // Remover o item da lista
+            item.remove();
+        }
+
+        function editarItem(item, textoItem) {
+            // Pedir ao usuário o novo texto
+            let novoTexto = prompt("Atualizar o item:", textoItem.textContent);
+
+            // Se o usuário inseriu algo, atualizar o item
+            if (novoTexto !== null && novoTexto.trim() !== "") {
+                textoItem.textContent = novoTexto;
+            } else {
+                alert("O texto não pode estar vazio.");
+            }
+        }
+    </script>
+</body>
+</html>

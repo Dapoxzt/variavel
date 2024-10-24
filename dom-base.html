@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Exemplo de Div com JavaScript</title>
+    
+</head>
+<body>
+
+    <div id="criarDiv"></div>
+    
+
+    <script>
+        //Txoma ou seleciona div
+        const div= document.getElementById('criarDiv');
+
+        // Adiciona testo em div
+       div.textContent="Danielson Cardoso"
+
+            // Define largura,altura e cor da div
+            div.style.width = "300px";
+            div.style.height = "150px";
+            div.style.backgroundColor = "red";
+            div.style.borderRadius="10px";
+            div.style.textAlign="center";
+            div.style.marginTop="20%";
+            div.style.marginLeft="40%";
+            
+           
+           
+            // Cria um elemento <p> dentro da div
+            const paragrafo = document.createElement("p");
+            // Manipulaçaõ de elemento
+            paragrafo.textContent = "Este é um parágrafo dentro da div.";
+            paragrafo.style.color="white";
+            // Adiciona o parágrafo dentro da div
+            div.appendChild(paragrafo);
+
+            
+    </script>
+
+</body>
+</html>

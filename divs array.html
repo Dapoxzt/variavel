@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs Estilizadas com Array</title>
+    <style>
+        /* Definindo uma borda e margem para todas as divs */
+        .minhaDiv {
+            margin: 1%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+
+    <script>
+        // Selecionando todas as divs pela classe "minhaDiv"
+        let divs = document.querySelectorAll('.minhaDiv');
+        
+        // Criando um array com as diferentes configurações de estilo
+        const danielson= [
+            { backgroundColor: 'red', width: '200px', height: '100px',color:'yellow'},
+            { backgroundColor: 'green', width: '150px', height: '150px',color:'yellow'},
+            { backgroundColor: 'blue', width: '100px', height: '200px',color:'yellow' },
+            { backgroundColor: 'yellow', width: '250px', height: '50px',color:'yellow' },
+            { backgroundColor: 'black', width: '300px', height: '75px',color:'yellow' }
+        ];
+
+        // Aplicando os estilos para cada div de acordo com o array
+        divs.forEach((div, inicio) => {
+            div.style.backgroundColor = danielson[inicio].backgroundColor;
+            div.style.width = danielson[inicio].width;
+            div.style.height = danielson[inicio].height;
+            div.style.color = danielson[inicio].color;
+
+        });
+    </script>
+</body>
+</html>

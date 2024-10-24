@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Itens à Tabela</title>
+    <style>
+        table, th, td {
+            border: 1px solid aqua;
+            border-collapse: collapse;
+            color: aqua;
+        }
+        button{
+           color: aqua;
+           border: 1px solid aqua;
+           border-collapse: collapse;
+        }
+
+        input{
+            color: aqua;
+           border: 1px solid aqua;
+           border-collapse: collapse;
+        }
+
+     
+        th, td {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar Itens à Tabela com IDs</h1>
+
+    <!-- Campo de input e botão -->
+    <input type="text" id="itemInput" placeholder="Escreva algo..."><br>
+    <button onclick="adicionarItem()">Adicionar</button><br><br>
+
+    <!-- Tabela com ID e Itens -->
+    <table id="tabelaItens">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Itens serão adicionados aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        let itemId = 1; // Contador de IDs para os itens
+
+        function adicionarItem() {
+            let itemTexto = document.getElementById("itemInput").value;
+
+            if (itemTexto.trim() !== "") {
+                // Criar uma nova linha (tr)
+                let novaLinha = document.createElement("tr");
+
+                // Criar a célula do ID
+                let celulaId = document.createElement("td");
+                celulaId.textContent = itemId;
+
+                // Criar a célula do texto do item
+                let celulaItem = document.createElement("td");
+                celulaItem.textContent = itemTexto;
+
+                // Adicionar células à nova linha
+                novaLinha.appendChild(celulaId);
+                novaLinha.appendChild(celulaItem);
+
+                // Adicionar a nova linha à tabela (tbody)
+                document.querySelector("#tabelaItens tbody").appendChild(novaLinha);
+
+                // Incrementar o ID para o próximo item
+                itemId++;
+
+                // Limpar o campo de input
+                document.getElementById("itemInput").value = "";
+            } else {
+                alert("Por favor, escreva algo antes de adicionar.");
+            }
+        }
+    </script>
+</body>
+</html>

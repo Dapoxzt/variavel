@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs Coloridas</title>
+    <style>
+        /* Definindo uma altura e largura padrão para as divs */
+        .minhaDiv {
+            margin: 100px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        </style>
+</head>
+<body>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+    <div class="minhaDiv"></div>
+
+    <script>
+        // Selecionando todas as divs pela classe "minhaDiv"
+        let divs = document.querySelectorAll('.minhaDiv');
+        
+        // Definindo cores de fundo, altura e largura diferentes para cada div
+        divs.forEach((div, index) => {
+            switch(index) {
+                case 0:
+                    div.style.backgroundColor = 'red';
+                    div.style.width = '200px';
+                    div.style.height = '100px';
+                    break;
+                case 1:
+                    div.style.backgroundColor = 'green';
+                    div.style.width = '150px';
+                    div.style.height = '150px';
+                    break;
+                case 2:
+                    div.style.backgroundColor = 'blue';
+                    div.style.width = '100px';
+                    div.style.height = '200px';
+                    break;
+                case 3:
+                    div.style.backgroundColor = 'yellow';
+                    div.style.width = '250px';
+                    div.style.height = '50px';
+                    break;
+                case 4:
+                    div.style.backgroundColor = 'black';
+                    div.style.width = '300px';
+                    div.style.height = '75px';
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
